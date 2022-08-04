@@ -16,7 +16,9 @@ class _ContactScreenState extends State<ContactScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView(
-        children: [],
+        children: [
+          Text("asjasj"),
+        ],
       ),
     );
   }
