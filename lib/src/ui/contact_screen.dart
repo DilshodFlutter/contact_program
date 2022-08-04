@@ -8,16 +8,16 @@ class ContactScreen extends StatefulWidget {
 }
 
 class _ContactScreenState extends State<ContactScreen> {
+  TextEditingController controllerName = TextEditingController();
+  TextEditingController controllerNumber = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Container(
-            height: 80,
-              padding: EdgeInsets.all(25.0),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(40.0) , color: Colors.red),
-              child: Text("Touch"))),
+      appBar: AppBar(),
+      body: ListView(
+        children: [],
+      ),
     );
   }
 }
