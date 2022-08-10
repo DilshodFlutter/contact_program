@@ -27,7 +27,7 @@ class ContactBlock {
   }
 
   Future<int> updateData(ContactModel products) async {
-    int id = await databaseHelper.saveData(products);
+    int id = await databaseHelper.updateData(products);
     allContact();
     return id;
   }
