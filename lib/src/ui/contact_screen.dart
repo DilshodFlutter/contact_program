@@ -1,5 +1,6 @@
 import 'package:contact_program/src/block/contact_block.dart';
 import 'package:contact_program/src/model/contact_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -51,6 +52,66 @@ class _ContactScreenState extends State<ContactScreen> {
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(height: 6.0),
+                        GestureDetector(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return CupertinoAlertDialog(
+                                    title: Text(data[index].name),
+                                    content: Text(data[index].number),
+                                    actions: [
+                                      Container(
+                                        height: 40,
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: const Center(
+                                            child: Text(
+                                              "Call",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w700),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 40,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(6.0),
+                            width: 88,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.green),
+                            child: const Icon(
+                              Icons.call,
+                              color: Colors.white,
+                              size: 18.0,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 6.0),
