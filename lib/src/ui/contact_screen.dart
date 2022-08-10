@@ -56,80 +56,77 @@ class _ContactScreenState extends State<ContactScreen> {
                         const SizedBox(height: 6.0),
                         GestureDetector(
                           onTap: () async {
+                            controllerUpdateName.text = data[index].name;
+                            controllerUpdateNumber.text = data[index].number;
                             showModalBottomSheet(
-                                context: context,
-                                builder: (context) {
-                                  return Container(
-                                    height: 300,
-                                    color: Colors.amber,
-                                    child: Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 20.0),
-                                            child: ElevatedButton(
-                                              onPressed: () => null,
-                                              child: TextField(
-                                                controller:
-                                                    controllerUpdateNumber,
-                                                decoration:
-                                                    const InputDecoration(
-                                                        border:
-                                                            InputBorder.none,
-                                                        hintText: "Name",
-                                                        hintStyle: TextStyle(
-                                                            color:
-                                                                Colors.black)),
+                              context: context,
+                              builder: (context) {
+                                return Container(
+                                  height: 300,
+                                  color: Colors.amber,
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.symmetric(
+                                            horizontal: 20.0,
+                                          ),
+                                          child: TextField(
+                                            controller: controllerUpdateName,
+                                            decoration: const InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "Name",
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(height: 20.0),
-                                          Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 20.0),
-                                            child: ElevatedButton(
-                                              onPressed: () => null,
-                                              child: TextField(
-                                                controller:
-                                                    controllerUpdateNumber,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  border: InputBorder.none,
-                                                  hintText: "Number",
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black),
-                                                ),
+                                        ),
+                                        const SizedBox(height: 20.0),
+                                        Container(
+                                          margin: const EdgeInsets.symmetric(
+                                            horizontal: 20.0,
+                                          ),
+                                          child: TextField(
+                                            controller: controllerUpdateNumber,
+                                            decoration: const InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "Number",
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(height: 10),
-                                          ElevatedButton(
-                                            onPressed: () {
-                                              data[index].number =
-                                                  controllerUpdateNumber
-                                                      as String;
-                                              data[index].name =
-                                                  controllerUpdateName
-                                                      as String;
-                                              contactBlock
-                                                  .updateData(data[index]);
-                                            },
-                                            child: const Text("Edit"),
-                                          ),
-                                          ElevatedButton(
-                                            onPressed: () =>
-                                                Navigator.pop(context),
-                                            child: const Text("Back"),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            contactBlock.updateData(
+                                                ContactModel(
+                                                    id: data[index].id,
+                                                    name: controllerUpdateName
+                                                        .text,
+                                                    number:
+                                                        controllerUpdateNumber
+                                                            .text));
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text("Edit"),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          child: const Text("Back"),
+                                        ),
+                                      ],
                                     ),
-                                  );
-                                });
+                                  ),
+                                );
+                              },
+                            );
                           },
                           child: Container(
                             padding: const EdgeInsets.all(4.0),
