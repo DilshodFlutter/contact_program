@@ -11,6 +11,12 @@ class NetInfoScreen extends StatefulWidget {
 
 class _NetInfoScreenState extends State<NetInfoScreen> {
   @override
+  void initState() {
+    super.initState();
+    netBlock.allNetInfo();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -22,23 +28,37 @@ class _NetInfoScreenState extends State<NetInfoScreen> {
             return ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return Container(
-                  child: Center(
-                    child: Container(
-                      height: 60.0,
-                      width: 60.0,
-                      color: Colors.green,
-                      child: const Icon(
-                        Icons.done,
-                        size: 24,
+                return Center(
+                  child: Column(
+                    children: [
+                      Text(data[index].name),
+                      const SizedBox(
+                        height: 10.0,
                       ),
-                    ),
+                      Text(data[index].image),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(data[index].fullName),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(data[index].slug),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(data[index].price.toString()),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(data[index].drugId.toString()),
+                    ],
                   ),
                 );
               },
             );
           }
-          return Container();
+          return Center();
         },
       ),
     );

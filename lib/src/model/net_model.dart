@@ -3,6 +3,9 @@ import 'dart:convert';
 String netModelToJson(List<NetModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+List<NetModel> netModelFromJson(String str) =>
+    List<NetModel>.from(json.decode(str).map((x) => NetModel.fromJson(x)));
+
 class NetModel {
   NetModel({
     required this.id,
@@ -19,8 +22,18 @@ class NetModel {
   String slug;
   String fullName;
   String image;
-  int price;
+  double price;
   int drugId;
+
+  factory NetModel.fromJson(Map<String, dynamic> json) => NetModel(
+        id: json["id"] ?? 0,
+        name: json["name"] ?? "",
+        slug: json["slug"] ?? "",
+        fullName: json["full_name"] ?? "",
+        image: json["image"] ?? "",
+        price: json["price"] ?? 0.0,
+        drugId: json["drug_id"] ?? 0,
+      );
 
   Map<String, dynamic> toJson() => {
         "name": name,

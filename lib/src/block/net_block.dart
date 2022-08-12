@@ -1,16 +1,19 @@
+import 'package:contact_program/src/api/provider.dart';
 import 'package:contact_program/src/database_helper/database_helper_new.dart';
 import 'package:contact_program/src/model/net_model.dart';
 import 'package:rxdart/subjects.dart';
 
 class NetBlock {
   DatabaseHelperNew databaseHelper = DatabaseHelperNew();
+  AppProvider appProvider = AppProvider();
 
   final _fetchNetData = PublishSubject<List<NetModel>>();
 
   Stream<List<NetModel>> get getNetData => _fetchNetData.stream;
 
   allNetInfo() async {
-    List<NetModel> data = await databaseHelper.getData();
+
+    List<NetModel> data = await appProvider.getNetData();
     _fetchNetData.sink.add(data);
   }
 
