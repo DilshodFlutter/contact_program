@@ -1,6 +1,7 @@
 import 'package:contact_program/src/block/contact_block.dart';
 import 'package:contact_program/src/model/contact_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,16 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
         elevation: 1,
         actions: [
           GestureDetector(
-            onTap: () {
-
-            },
-            child: Icon(
+            onTap: () {},
+            child: const Icon(
               Icons.person_add_alt_1,
               size: 30.0,
               color: Colors.blue,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 30.0,
           ),
         ],
@@ -50,23 +49,30 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: Text(
-                              data[index].name,
+                      Slidable(
+                        key: const ValueKey(
+                          0,
+                        ),
+
+
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 10,
                             ),
-                          ),
-                          Text(
-                            data[index].number,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                        ],
+                            Expanded(
+                              child: Text(
+                                data[index].name,
+                              ),
+                            ),
+                            Text(
+                              data[index].number,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

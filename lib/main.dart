@@ -1,4 +1,5 @@
 import 'package:contact_program/src/ui/contact_screen.dart';
+import 'package:contact_program/src/ui/jack_splash.dart';
 import 'package:contact_program/src/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: const JackSplash(),
     );
   }
 }
