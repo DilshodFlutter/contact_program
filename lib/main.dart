@@ -1,5 +1,4 @@
 import 'package:contact_program/src/ui/contact_screen.dart';
-import 'package:contact_program/src/ui/net_info_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const NetInfoScreen(),
+      home: const ContactScreen(),
     );
   }
 }

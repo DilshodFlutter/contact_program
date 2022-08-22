@@ -79,12 +79,13 @@ class _ContactScreenState extends State<ContactScreen> {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        height: 40,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          color: Colors.transparent,
+                                          height: 40,
                                           child: const Center(
                                             child: Text(
                                               "Cancel",
